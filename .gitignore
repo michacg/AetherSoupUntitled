@@ -25,8 +25,6 @@
 
 # Visual Studio cache directory
 .vs/
-.vscode/
-.vsconfig
 
 # Gradle cache directory
 .gradle/
@@ -59,6 +57,7 @@ sysinfo.txt
 
 # Builds
 *.apk
+*.aab
 *.unitypackage
 
 # Crashlytics generated file
@@ -70,12 +69,3 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
-
-# This is MRS's custom gitignore options
-/Assets/Packages/
-/Assets/Packages.meta
-/UWP/
-Unity-*.log
-
-*.pfx
-*.pfx.meta

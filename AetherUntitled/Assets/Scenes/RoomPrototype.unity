@@ -701,7 +701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e6b4b366880ace4b97373f523e79164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 6
   rotSpeed: 80
   rot: 0
   radarDistance: 1.5
