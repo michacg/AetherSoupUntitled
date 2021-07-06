@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     {
         isSitting = false;
         controller = GetComponent<CharacterController>();
+        DontDestroyOnLoad(gameObject);
     }
 
     void Update()

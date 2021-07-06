@@ -13,6 +13,12 @@ public class CameraController : MonoBehaviour
 
     private float zoom = 10f;
 
+    private void Start()
+    {
+        DontDestroyOnLoad(gameObject);
+
+    }
+
     private void Update()
     {
         zoom -= Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
