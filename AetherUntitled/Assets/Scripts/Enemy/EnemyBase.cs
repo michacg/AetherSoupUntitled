@@ -1,16 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class EnemyBase
+[RequireComponent(typeof(NavMeshAgent))]
+public abstract class EnemyBase : MonoBehaviour
 {
-    void Start()
+    public Transform player;
+    public NavMeshAgent agent;
+
+    private void Awake()
     {
-        
+        agent = GetComponent<NavMeshAgent>();
     }
 
-    void Update()
-    {
-        
-    }
+    public abstract void Idle();
+    public abstract void Attack();
+
 }
