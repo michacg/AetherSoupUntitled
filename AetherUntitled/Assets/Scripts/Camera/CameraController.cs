@@ -8,7 +8,7 @@ public class CameraController : MonoBehaviour
     public Vector3 offset;
     public float pitch = 2f;
     public float zoomSpeed = 4f;
-    public float minZoom = 5f;
+    public float minZoom = 15f;
     public float maxZoom = 20f;
 
     private float zoom = 10f;
@@ -26,7 +26,7 @@ public class CameraController : MonoBehaviour
     }
     void LateUpdate()
     {
-        transform.position = target.position - offset * zoom;
+        transform.position = target.position - zoom * offset;
         transform.LookAt(target.position + Vector3.up * pitch);
     }
 }
