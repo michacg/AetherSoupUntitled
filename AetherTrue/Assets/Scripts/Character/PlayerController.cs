@@ -42,21 +42,34 @@ public class PlayerController : MonoBehaviour
         //transform.LookAt(transform.position + m_camera.transform.rotation * Vector3.forward,
         //    m_camera.transform.rotation * Vector3.up);
 
-        if (Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0)
-        {
+       // if (Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0)
+        //{
             moveDir = new Vector3(-Input.GetAxis("Horizontal"), 0, -Input.GetAxis("Vertical"));
             moveDir *= speed;
-            moveDir = transform.TransformDirection(moveDir);
-        }
-        else
+           // moveDir = transform.TransformDirection(moveDir);
+
+
+
+
+            if (moveDir != Vector3.zero)
         {
-            moveDir = new Vector3(0, 0, 0);
+            transform.forward = moveDir; //jinny added
         }
+      
+        
+            
+
+        // }
+        // else
+        // {
+        //     moveDir = new Vector3(0, 0, 0);
+        // }
 
         //rot += Input.GetAxis("Horizontal") * rotSpeed * Time.deltaTime;
         //transform.eulerAngles = new Vector3(0, rot, 0);
 
         controller.Move(moveDir * Time.deltaTime);
+       // controller.transform.Rotate(0, Input.GetAxis("Horizontal"), 0); //jinny added
     }
 
 
