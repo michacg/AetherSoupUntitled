@@ -11,6 +11,7 @@ public class HealthSystem :MonoBehaviour
 {
 
 public Image[] hearts; //make list instead and get hurt method
+public GameObject damageburst;
 public int health;
 
 
@@ -44,8 +45,7 @@ public void Damage(int d){
     void Update()
       {
 
-
-      if (health < 1){
+     if (health < 1){
           Destroy(hearts[0].gameObject); //disable instead? check if null first
       }
       else if (health < 2){
@@ -56,6 +56,7 @@ public void Damage(int d){
       }
     else if (health ==0){
                 return;
+ 
     }
 
 
@@ -69,11 +70,10 @@ public void Damage(int d){
     
 //decrease player health on collision with enemy
 void OnCollision(Collision _collision){
-    if(_collision.gameObject.tag =="enemy"){
+    if(_collision.gameObject.tag =="Enemy"){
         Debug.Log("enemy collision");
         health-=1;
-
-
+        Instantiate(damageburst, transform.position, transform.rotation); //particle effects
 
         //put the if statements here?
     }

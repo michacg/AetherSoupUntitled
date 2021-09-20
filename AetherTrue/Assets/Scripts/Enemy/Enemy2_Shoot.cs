@@ -28,7 +28,7 @@ private void Start(){
 
 private void Update(){
  fireRate -= Time.deltaTime;
- Vector3 direction =  transform.position - target.position;
+ Vector3 direction =   target.position - transform.position;
  transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), turnSpeed * Time.deltaTime);
 
 
