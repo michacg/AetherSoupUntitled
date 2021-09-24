@@ -8,7 +8,7 @@ public class EnemyProjectile : MonoBehaviour
 
 [SerializeField]
 //public int damage = 10f;
-
+public float timedelay = 8f;
 
 
 Rigidbody rb;
@@ -37,6 +37,11 @@ private void OnCollisionEnter(Collision collision){
     //  Destroy(gameObject);
     }
 }
+
+void Start()
+{
+    Destroy(this.gameObject, timedelay);
+    }
 
 
 }

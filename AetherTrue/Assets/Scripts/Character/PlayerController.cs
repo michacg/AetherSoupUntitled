@@ -18,6 +18,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float rot = 0f;
     [SerializeField] public float radarDistance = 1.5f;
 
+
+
+
     [Header("Player Keybinds")]
     [SerializeField] public KeyCode interactionKey = KeyCode.Space;
 
@@ -39,6 +42,8 @@ public class PlayerController : MonoBehaviour
 
     void move()
     {
+
+        
         //transform.LookAt(transform.position + m_camera.transform.rotation * Vector3.forward,
         //    m_camera.transform.rotation * Vector3.up);
 
@@ -48,28 +53,17 @@ public class PlayerController : MonoBehaviour
             moveDir *= speed;
            // moveDir = transform.TransformDirection(moveDir);
 
-
-
+// need to add gravity
 
             if (moveDir != Vector3.zero)
         {
             transform.forward = moveDir; //jinny added
         }
-      
-        
-            
 
-        // }
-        // else
-        // {
-        //     moveDir = new Vector3(0, 0, 0);
-        // }
 
-        //rot += Input.GetAxis("Horizontal") * rotSpeed * Time.deltaTime;
-        //transform.eulerAngles = new Vector3(0, rot, 0);
+//move is supposed to add gravity automatically
+        controller.SimpleMove(moveDir);
 
-        controller.Move(moveDir * Time.deltaTime);
-       // controller.transform.Rotate(0, Input.GetAxis("Horizontal"), 0); //jinny added
     }
 
 

@@ -43,36 +43,26 @@ public void Damage(int d){
     }
 
 void OnCollisionEnter(Collision _collision){
-    if(_collision.gameObject.tag =="Player"){
+    if(_collision.gameObject.tag =="Player"){ //optimize
         Debug.Log("enemy collision");
         health-=1;
-  //  Destroy(gameObject);
         Instantiate(damageburst, transform.position, transform.rotation); //particle effects
 
-
-
+if(health<=0){
+    Death();
+}
         //put the if statements here?
     }
 }
 
 
-
+private void Death(){
+    Destroy(gameObject);
 }
 
 
-//  if (Input.GetKeyDown(KeyCode.Space)){
-//      health --;
-//      Debug.Log("health is" + health);
-//  }
+}
 
-      
-    
-//decrease player health on collision with enemy
-
-        
-
-        // move();
-    
 
 
 
