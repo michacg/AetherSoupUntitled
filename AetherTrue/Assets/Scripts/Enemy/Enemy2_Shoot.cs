@@ -16,7 +16,7 @@ Transform shootPoint;
 
 [SerializeField]
 float turnSpeed = 5;
-float fireRate = 0.2f;
+float fireRate = 0.1f;
 
 private void Start(){
 
@@ -35,7 +35,7 @@ private void Update(){
 
 if (fireRate <= 0){
 
-    fireRate = 0.5f; //hard coded here
+    fireRate = 1f; //hard coded here
     Shoot();
 }
 
