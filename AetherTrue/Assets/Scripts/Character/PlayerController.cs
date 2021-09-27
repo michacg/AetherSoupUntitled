@@ -18,6 +18,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float rot = 0f;
     [SerializeField] public float radarDistance = 1.5f;
 
+
+
+
     [Header("Player Keybinds")]
     [SerializeField] public KeyCode interactionKey = KeyCode.Space;
 
@@ -35,31 +38,71 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         move();
+
+     if (Input.GetKeyDown(KeyCode.Space)){
+        Attack();
     }
+
+//boon 2
+void OnTriggerEnter(Collider _collision){
+ if(_collision.gameObject.tag =="AttackSpeed"){
+         speed = 70f;
+         Debug.Log("attack speed");
+         Destroy(_collision.gameObject);
+         }
+}
+
+    
+
+//     void OnCollisionEnter(Collision _collision){
+//   if(_collision.gameObject.tag =="AttackSpeed"){
+//          speed = 70f;
+//          Debug.Log("attack speed");
+//          Destroy(_collision.gameObject);
+//          }
+// }
+
+
+
+void Attack(){
+//  animator.SetTrigger("Attack");
+}
+
+
+
+
+
+
+
 
     void move()
     {
+
+        
         //transform.LookAt(transform.position + m_camera.transform.rotation * Vector3.forward,
         //    m_camera.transform.rotation * Vector3.up);
 
-        if (Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0)
-        {
+       // if (Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0)
+        //{
             moveDir = new Vector3(-Input.GetAxis("Horizontal"), 0, -Input.GetAxis("Vertical"));
             moveDir *= speed;
-            moveDir = transform.TransformDirection(moveDir);
-        }
-        else
+           // moveDir = transform.TransformDirection(moveDir);
+
+// need to add gravity
+
+            if (moveDir != Vector3.zero)
         {
-            moveDir = new Vector3(0, 0, 0);
+            transform.forward = moveDir; //jinny added
         }
 
-        //rot += Input.GetAxis("Horizontal") * rotSpeed * Time.deltaTime;
-        //transform.eulerAngles = new Vector3(0, rot, 0);
 
-        controller.Move(moveDir * Time.deltaTime);
+//move is supposed to add gravity automatically
+        controller.SimpleMove(moveDir);
+
     }
 
 
 
 
+}
 }
