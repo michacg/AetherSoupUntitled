@@ -86,25 +86,46 @@ if (health <= 0){
 // }
     
 //decrease player health on collision with enemy
-void OnTriggerEnter(Collider _collision){
+ void OnTriggerEnter(Collider _collision){
 
-    if(_collision.gameObject.tag =="Enemy"){
-        health-=1;
-      //  StartCoroutine(Flash());
-        Instantiate(damageburst, transform.position, transform.rotation); //particle effects
+//     if(_collision.gameObject.tag =="Enemy"){
+//         health-=1;
+//       //  StartCoroutine(Flash());
+//       Debug.Log("hiiii");
+//         Instantiate(damageburst, transform.position, transform.rotation); //particle effects
 
 
-//this doesnt work, even tho both objects have a collider
+// //this doesnt work, even tho both objects have a collider and the heal has an istrigger
      if(_collision.gameObject.tag =="Heal"){
          AddLife();
-         Debug.Log("hiiii");
+         Debug.Log("heal");
          Destroy(_collision.gameObject);
          }
 
-        //heal upon collision w potion
-    }
-}
+          if(_collision.gameObject.tag =="AttackSpeed"){
+        //  speed = 70f;
+         Debug.Log("attack speed");
+         Destroy(_collision.gameObject);
+         }
 
+
+// //         //heal upon collision w potion
+   }
+
+
+
+
+
+   
+//  }
+
+// void OnCollisionEnter(Collision _collision){
+//      if(_collision.gameObject.tag =="Heal"){
+//          AddLife();
+//          Debug.Log("heal");
+//          Destroy(_collision.gameObject);
+//          }
+// }
 
 
 

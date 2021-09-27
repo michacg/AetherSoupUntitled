@@ -38,7 +38,42 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         move();
+
+     if (Input.GetKeyDown(KeyCode.Space)){
+        Attack();
     }
+
+//boon 2
+void OnTriggerEnter(Collider _collision){
+ if(_collision.gameObject.tag =="AttackSpeed"){
+         speed = 70f;
+         Debug.Log("attack speed");
+         Destroy(_collision.gameObject);
+         }
+}
+
+    
+
+//     void OnCollisionEnter(Collision _collision){
+//   if(_collision.gameObject.tag =="AttackSpeed"){
+//          speed = 70f;
+//          Debug.Log("attack speed");
+//          Destroy(_collision.gameObject);
+//          }
+// }
+
+
+
+void Attack(){
+//  animator.SetTrigger("Attack");
+}
+
+
+
+
+
+
+
 
     void move()
     {
@@ -69,4 +104,5 @@ public class PlayerController : MonoBehaviour
 
 
 
+}
 }
