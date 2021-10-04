@@ -36,9 +36,11 @@ public void Damage(int d){
    
     void Update()
       {
-// if (health ==0){
-//     Destroy(gameObject); //removes whatever 
-// }
+
+       if (health ==0)
+       {
+             Destroy(gameObject); //removes whatever 
+       }
     
     }
 

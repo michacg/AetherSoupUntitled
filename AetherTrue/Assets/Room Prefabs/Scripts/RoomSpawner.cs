@@ -10,7 +10,7 @@ public class RoomSpawner : MonoBehaviour
 
     private int randomRoomSpawn;
     private bool spawned = false;
-    public float waitTime = 0.1f;
+    public float waitTime = 0.02f;
     void Start()
     {
         templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
